@@ -1,12 +1,13 @@
 <link rel="stylesheet" href="app.component.css">
 <div id="center"> 
-    <h1>Калькулятор</h1> 
+    <h1>Вычисление логических выражений</h1> 
+    <section>
+      <option value="!">НЕ</option>
+    </section>
     <input [(ngModel)]="firstOperand" type="number"> 
     <select [(ngModel)]="operator"> 
-      <option value="-">-</option> 
-      <option value="+">+</option> 
-      <option value="*">*</option> 
-      <option value="/">/</option> 
+      <option value="&&">И</option> 
+      <option value="||">ИЛИ</option>  
     </select> 
     <input [(ngModel)]="secondOperand" type="number"> 
     <input (click)="doCalc()" type="submit" value="Подтвердить"> 

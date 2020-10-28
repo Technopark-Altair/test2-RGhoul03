@@ -1,3 +1,4 @@
+import { IfStmt } from '@angular/compiler';
 import { Component } from '@angular/core'; 
 
 @Component({ 
@@ -9,38 +10,37 @@ export class AppComponent {
   title = 'my-app'; 
   firstOperand: number; 
   secondOperand: number; 
-  operator: string; 
+  operator:string; 
+  operator_2:string;
+  errorMessage: string;
   result: number; 
-  errorMessage: string; 
 
-  doCalc() { 
-  if(this.firstOperand != null && this.secondOperand != null && this.operator != null){ 
-  if(this.operator == "-"){ 
-  this.result = this.firstOperand - this.secondOperand; 
-  this.errorMessage = "Нет ошибки"; 
-  }else if (this.operator == "+"){ 
-  this.result = this.firstOperand + this.secondOperand; 
-  this.errorMessage = "Нет ошибки"; 
-  }else if (this.operator == "*"){ 
-  this.result = this.firstOperand * this.secondOperand; 
-  this.errorMessage = "Нет ошибки"; 
-  }else if (this.operator == "/"){ 
-  if(this.secondOperand == 0){ 
-  this.result = null; 
-  this.errorMessage = "На ноль делить нельзя"; 
-  }else{ 
-  this.result = this.firstOperand / this.secondOperand; 
-  this.errorMessage = "Нет ошибки"; 
-  } 
-  } 
-  }else{ 
-  if(this.firstOperand == null){ 
-  this.errorMessage = "Нет первого операнда"; 
-  }else if(this.secondOperand == null){ 
-  this.errorMessage = "Нет второго операнда"; 
-  }else if(this.operator == null){ 
-  this.errorMessage = "Нет оператора"; 
-  } 
-  } 
-  } 
+  doCalc(){
+    if(this.firstOperand == 1 || this.firstOperand == 0 || this.secondOperand == 1 || this.secondOperand == 0){
+      if(this.operator == null){
+        if(this.operator_2 == "&&"){
+          if(this.firstOperand == 1 && this.secondOperand == 1){
+            this.result == 1;
+            this.errorMessage == "нет ошибки"
+          }else{
+            this.result == 0;
+          }
+        }else if(this.operator == "||"){
+          if(this.firstOperand == 1 || this.secondOperand == 1){
+            this.result == 1;
+          }else{
+            this.result == 0;
+          }
+        }
+      }
+    }else{ 
+      if(this.firstOperand == null){ 
+        this.errorMessage = "Нет первого операнда"; 
+      }else if(this.secondOperand == null){ 
+        this.errorMessage = "Нет второго операнда"; 
+      }else if(this.operator == null){ 
+        this.errorMessage = "Нет оператора"; 
+      } 
+    }  
+  }
 }
