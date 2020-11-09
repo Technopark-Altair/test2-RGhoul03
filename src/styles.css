@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+
+.div {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 10px;
+    justify-content: center;
+}
+
+@media (min-width: 300px) and (max-width: 1500px){
+    .div {
+        text-align: center;
+        width: auto;
+    }
+}
+input[type=text]:hover{
+    color: hotpink;
+}
+input[type=email]:hover{
+    color: hotpink;
+}
+input[type=password]:hover{
+    color: hotpink;
+}
+input[type=time]:hover{
+    color: hotpink;
+}
+input[type=submit]:hover{
+    background-color: green;
+}
