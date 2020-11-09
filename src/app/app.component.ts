@@ -13,24 +13,21 @@ export class AppComponent {
   operator:string; 
   operator_2:string;
   errorMessage: string;
-  result: number; 
+  result: Boolean; 
 
   doCalc(){
-    if(this.firstOperand == 1 || this.firstOperand == 0 || this.secondOperand == 1 || this.secondOperand == 0){
-      if(this.operator == null){
+    if(this.firstOperand != null && this.secondOperand != null && this.operator != null){
+      if(this.operator != "!"){
         if(this.operator_2 == "&&"){
-          if(this.firstOperand == 1 && this.secondOperand == 1){
-            this.result == 1;
-            this.errorMessage == "нет ошибки"
-          }else{
-            this.result == 0;
-          }
-        }else if(this.operator == "||"){
-          if(this.firstOperand == 1 || this.secondOperand == 1){
-            this.result == 1;
-          }else{
-            this.result == 0;
-          }
+          this.result = Boolean(this.firstOperand && this.secondOperand)
+        }else if(this.operator_2 == "||"){
+          this.result = Boolean(this.firstOperand || this.secondOperand)
+        }
+      }else if(this.operator == "!"){
+        if(this.operator_2 == "&&"){
+          this.result = !Boolean(this.firstOperand && this.secondOperand)
+        }else if(this.operator_2 == "||"){
+          this.result = !Boolean(this.firstOperand || this.secondOperand)
         }
       }
     }else{ 
